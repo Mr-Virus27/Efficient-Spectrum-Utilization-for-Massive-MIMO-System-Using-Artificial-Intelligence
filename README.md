@@ -1,6 +1,6 @@
-# Neural Network-Based MIMO Precoding and Performance Evaluation
+# Efficient Spectrum Utilization for Massive MIMO System Using Artificial Intelligence
 
-A MATLAB simulation framework for advanced MIMO (Multiple-Input Multiple-Output) wireless communication with neural network-based precoding, realistic channel/noise modeling, and comprehensive performance analysis.
+Efficient Spectrum Utilization for Massive MIMO System Using Artificial Intelligence is a MATLAB simulation framework for advanced MIMO (Multiple-Input Multiple-Output) wireless communication leveraging neural network-based precoding, realistic channel/noise modeling, and comprehensive performance analysis.
 
 ---
 
