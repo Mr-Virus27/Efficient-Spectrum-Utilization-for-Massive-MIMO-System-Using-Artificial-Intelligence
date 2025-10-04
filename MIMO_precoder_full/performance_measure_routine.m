@@ -1,0 +1,27 @@
+function [ACC,PREC,REC,F1SCO,SPEC,MCC]=performance_measure_routine(TPV,TNV,FPV,FNV)
+
+
+ACC=(TPV+TNV)/(TPV+TNV+FPV+FNV);
+
+PREC=TPV/(TPV+FPV);
+
+REC=TPV/(TPV+FNV);
+
+F1SCO=(2*PREC*REC)/(PREC+REC);
+
+SPEC=TNV/(TNV+FPV);
+
+MCC1= (TPV*TNV)-(FPV*FNV);
+MCC2=(TPV*FPV)*(TPV*FNV)*(TNV*FPV)*(TNV*FNV);
+MCC=MCC1/sqrt(MCC2);
+
+
+
+
+
+
+
+
+
+
+

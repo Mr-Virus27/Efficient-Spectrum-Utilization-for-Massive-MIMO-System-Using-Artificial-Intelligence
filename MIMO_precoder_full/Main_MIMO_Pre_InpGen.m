@@ -1,0 +1,78 @@
+clc;
+close all;
+clear all;
+warning off;
+
+numInputs=4; % Number of channels
+numSamples=1000; %Samples
+sampleRate=10000000; % Sampling rate
+answer = inputdlg('Enter Sampling frequency\n');
+input = str2num(cell2mat(answer));
+sampleRate=input;
+%  Consider 4:4 MIMO 
+M=4;
+for i=1:M
+[inputSignals, timeVector]=mimoInputGenerator(numInputs, numSamples, sampleRate);
+% title(['Channel' num2str(M)])
+end
+input_ut=inputSignals(:,1);
+[y1]=tx_precoder(input_ut);
+input_ut=inputSignals(:,2);
+[y2]=tx_precoder(input_ut);
+input_ut=inputSignals(:,3);
+[y3]=tx_precoder(input_ut);
+input_ut=inputSignals(:,4);
+[y4]=tx_precoder(input_ut);
+
+MIMO_input_tx=[y1;y2;y3;y4];
+Gx_gen=rand(50);
+Gx_add=Gx_gen(1:1000);
+
+ndy1=y1(1,:);
+ndy2=y2(1,:);
+ndy3=y3(1,:);
+ndy4=y4(1,:);
+% Channel Mixing
+n=1;
+for i=1:1000
+    tx_mimo_c1(i)=ndy1(i)*Gx_add(i)+n; % Linear Mixing with Random Probablistic Channel noise
+    tx_mimo_c2(i)=ndy2(i)*Gx_add(i)+n;
+    tx_mimo_c3(i)=ndy3(i)*Gx_add(i)+n;
+    tx_mimo_c4(i)=ndy4(i)*Gx_add(i)+n;    
+end
+tx_mimo=[tx_mimo_c1;tx_mimo_c2;tx_mimo_c3;tx_mimo_c4];
+%  Precoder retrieve operation at RX end
+test_channel=1;
+[yrx]=tx_precoder(tx_mimo(test_channel,:)');
+[rr cc]=size(yrx(1,:));
+test_data=yrx(1,:);
+%  Decode the channel
+[rx_mimo]=rx_precoded_data_analyser(sampleRate);
+ [FN,FP,TN,TP,conmat,c_0,c_1,class,et,yy]=Deep_conjugate_neural_computing(test_data,rx_mimo);
+ [ACC,PREC,REC,F1SCO,SPEC,MCC]=performance_measure_routine(TP,TN,FP,FN);
+% 
+deviat=floor(test_data)-floor(yy(:,1));
+figure
+stem(deviat);
+title('Correlation of Tx MIMO/Rx MIMO ');
+xlabel('MIMO Channels');
+ylabel('Peak RSSI');
+grid on
+
+figure
+[berr]=plts(deviat(1:1000));
+[pd,dl,tp,pdr_out]=perf_eval(numel(deviat));
+figure
+probplot('normal',pdr_out);figure(gcf);
+title('PDR - MIMO Precoded Performance')
+legend('Conventional PDR','Proposed PDR')
+grid on
+% PREC,REC,F1SCO,SPEC,MCC
+fprintf('************* PEFORMANCE MEASURE *******************\n');
+fprintf('Accuracy=%s\n',num2str(ACC*100));
+fprintf('Precision=%s\n',num2str(PREC*100));
+fprintf('Recall=%s\n',num2str(REC*100));
+fprintf('F1score=%s\n',num2str(F1SCO*100));
+fprintf('Specificity=%s\n',num2str(SPEC*100));
+fprintf('Mathews corr constant=%s\n',num2str(MCC));
+fprintf('****************************************************\n');
