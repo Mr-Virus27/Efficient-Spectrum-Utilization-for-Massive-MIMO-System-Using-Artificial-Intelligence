@@ -58,18 +58,23 @@ This project models a MIMO communication system using neural networks for both p
 ## Visual Results
 
 ![MIMO input signals](Images/MIMO_Input_Signals.jpg)
+
 *Randomly generated MIMO input signals for multiple channels showing signal variation over time.*
 
 ![Correlation plot](Images/Correlation_of_TxRx_MIMO.jpg)
+
 *Correlation plot between transmitted and received MIMO channels, highlighting channel relationship.*
 
 ![PDR performance](Images/PDR_Performance.jpg)
+
 *Packet Delivery Ratio (PDR) performance comparison of conventional and proposed MIMO precoding techniques.*
 
 ![BER curve](Images/BER_Comparison.jpg)
+
 *Bit Error Rate (BER) curve showing estimated versus theoretical BER over varying signal-to-noise ratios.*
 
 ![Classification metrics](Images/Classification_Metrics.jpg)
+
 *Performance metrics output including accuracy, precision, recall, F1-score, specificity, and Matthews correlation coefficient.*
 
 # Requirements
