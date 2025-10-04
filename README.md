@@ -57,15 +57,15 @@ This project models a MIMO communication system using neural networks for both p
 
 ## Visual Results
 
-![Randomly generated MIMO input signals for multiple channels showing signal variation over time.](Images/MIMO Input Signals.jpg)
+![Randomly generated MIMO input signals for multiple channels showing signal variation over time.](Images/MIMO_Input_Signals.jpg)
 
-![Correlation plot between transmitted and received MIMO channels, highlighting channel relationship.](Images/Correlation of TxRx MIMO.jpg)
+![Correlation plot between transmitted and received MIMO channels, highlighting channel relationship.](Images/Correlation_of_TxRx_MIMO.jpg)
 
-![Packet Delivery Ratio (PDR) performance comparison of conventional and proposed MIMO precoding techniques.](Images/PDRPerformance.jpg)
+![Packet Delivery Ratio (PDR) performance comparison of conventional and proposed MIMO precoding techniques.](Images/PDR_Performance.jpg)
 
 ![Bit Error Rate (BER) curve showing estimated versus theoretical BER over varying signal-to-noise ratios.](Images/BER_Comparison.jpg)
 
-![Performance metrics output including accuracy, precision, recall, F1-score, specificity, and Matthews correlation coefficient.](Images/Classification Metrics.jpg)
+![Performance metrics output including accuracy, precision, recall, F1-score, specificity, and Matthews correlation coefficient.](Images/Classification_Metrics.jpg)
 
 # Requirements
 
@@ -83,8 +83,8 @@ Follow these steps to set up and run the simulation:
 
 1. **Clone the repository to your local machine:**
 
-git clone https://github.com/your-username/your-repository.git
-cd your-repository
+- git clone https://github.com/your-username/your-repository.git
+- cd your-repository
 
 2. **Open MATLAB** and add the project folder (including the `images/` folder if present) to the MATLAB path.
 
