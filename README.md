@@ -61,9 +61,9 @@ This project models a MIMO communication system using neural networks for both p
 
 ![Correlation plot between transmitted and received MIMO channels, highlighting channel relationship.](Images/Correlation of TxRx MIMO.jpg)
 
-![Packet Delivery Ratio (PDR) performance comparison of conventional and proposed MIMO precoding techniques.](Images/PDR Performance.jpg)
+![Packet Delivery Ratio (PDR) performance comparison of conventional and proposed MIMO precoding techniques.](Images/PDRPerformance.jpg)
 
-![Bit Error Rate (BER) curve showing estimated versus theoretical BER over varying signal-to-noise ratios.](Images/BER Comparison.jpg)
+![Bit Error Rate (BER) curve showing estimated versus theoretical BER over varying signal-to-noise ratios.](Images/BER_Comparison.jpg)
 
 ![Performance metrics output including accuracy, precision, recall, F1-score, specificity, and Matthews correlation coefficient.](Images/Classification Metrics.jpg)
 
